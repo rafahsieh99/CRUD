@@ -36,6 +36,3 @@ const deleteTopic = async (req, res) => {
 };
 
 module.exports = { createTopic, getTopics, voteTopic, deleteTopic };
-
-
-// ver como hacer rutas y desglosar las rutas para livecoding
