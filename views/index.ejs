@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learn It, Love It</title>
+    <title>VOTACION</title>
+    <script src="/public/script.js" defer></script>  <!-- Enlace al archivo JS -->
 </head>
 <body>
     <h1>Temas de Aprendizaje</h1>
@@ -18,12 +19,10 @@
         <% topics.forEach(topic => { %>
             <li>
                 <h3><%= topic.name %></h3>
-                <p>Votos: <%= topic.vote_count %></p>
+                <p id="vote-count-<%= topic.id %>">Votos: <%= topic.vote_count %></p>
 
-                <!-- Formulario para votar por el tema -->
-                <form action="/vote/<%= topic.id %>" method="POST" style="display: inline;">
-                    <button type="submit">Votar</button>
-                </form>
+                <!-- Botón de votación manejado por JavaScript -->
+                <button class="vote-button" data-topic-id="<%= topic.id %>">Votar</button>
 
                 <!-- Formulario para eliminar el tema -->
                 <form action="/delete/<%= topic.id %>" method="POST" style="display: inline;">
