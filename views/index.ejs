@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learn It, Love It</title>
-    <script src="/public/script.js" defer></script>  <!-- Enlace al archivo JS -->
 </head>
 <body>
     <h1>Temas de Aprendizaje</h1>
 
+    <!-- Formulario para agregar un nuevo tema -->
     <form action="/create" method="POST">
         <input type="text" name="name" placeholder="Nuevo tema" required>
         <button type="submit">Agregar Tema</button>
@@ -18,10 +18,15 @@
         <% topics.forEach(topic => { %>
             <li>
                 <h3><%= topic.name %></h3>
-                <p id="vote-count-<%= topic.id %>">Votos: <%= topic.vote_count %></p>
-                <!-- Botón de votación con AJAX -->
-                <button class="vote-button" data-topic-id="<%= topic.id %>">Votar</button>
-                <form action="/delete/<%= topic.id %>" method="POST">
+                <p>Votos: <%= topic.vote_count %></p>
+
+                <!-- Formulario para votar por el tema -->
+                <form action="/vote/<%= topic.id %>" method="POST" style="display: inline;">
+                    <button type="submit">Votar</button>
+                </form>
+
+                <!-- Formulario para eliminar el tema -->
+                <form action="/delete/<%= topic.id %>" method="POST" style="display: inline;">
                     <button type="submit">Eliminar</button>
                 </form>
             </li>
