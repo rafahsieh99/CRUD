@@ -18,14 +18,8 @@ const voteTopic = async (req, res) => {
     const { id } = req.params;
     await topicModel.voteTopic(id);
     
-    // Obtener el tema actualizado con el nuevo conteo de votos
-    const topic = await topicModel.getTopicById(id);
-    
-    // Devolvemos el nuevo conteo de votos en formato JSON
-    res.json({
-        success: true,
-        vote_count: topic.vote_count,
-    });
+    // Redirigimos a la página principal para ver los votos actualizados
+    res.redirect('/');
 };
 
 // Eliminar un tema
