@@ -2,9 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Escuchar clics en los botones de votación
     const voteButtons = document.querySelectorAll('.vote-button');
     voteButtons.forEach(button => {
-        button.addEventListener('click', (event) => {
-            // Aquí no se llama a `event.preventDefault()`, permitiendo la recarga de la página
-            
+        button.addEventListener('click', (event) => {         
             const topicId = event.target.dataset.topicId;  // Obtener el ID del tema
 
             // Realizar la solicitud POST al servidor usando fetch
